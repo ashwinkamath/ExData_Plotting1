@@ -10,13 +10,12 @@ downloadFile <- function() {
 }
 
 loadData <- function() {
+    # Used by various plot functions to extract data
     downloadFile()
     data <- read.table(unzip(zipfile="./data/consumption.zip"), sep=";",header=TRUE, na.strings=c("?"))
     data <- data[data$Date == "1/2/2007"| data$Date == "2/2/2007",]
     data$DateTime <- paste(data$Date,data$Time)
     data$DateTime <- strptime(data$DateTime, "%d/%m/%Y %H:%M:%S")
-#    data$Date <- as.Date(data$Date,format="%d/%m/%Y")
-#    data$DateTime <- strptime(paste(data$Date,data$Time), "%d/%m/%Y %H:%M:%S")
     data
 }
 

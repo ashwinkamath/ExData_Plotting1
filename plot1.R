@@ -1,4 +1,7 @@
 plot1 <- function(data = null) {
+    # Plots graph as required by assignment 1
+    # Loads Data using loadData() 
+    
     source("loadData.R")
     if(is.null(data)) {
         data <- loadData()
